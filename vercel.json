@@ -1,0 +1,10 @@
+{
+  "routes": [
+    { "src": "/igneeldragons(/.*)?", "status": 403, "headers": { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store" } },
+    { "src": "/(_private|\\.git|node_modules)(/.*)?", "status": 403 },
+    { "src": "/.*\\.(map|md|json|py|sh)$", "status": 403 },
+    { "src": "/.*", "has": [ { "type": "header", "key": "user-agent", "value": "(curl|Curl|wget|Wget|python-requests|python-urllib|Python-urllib|python-httpx|aiohttp|Scrapy|HTTrack|libwww-perl|Go-http-client|HeadlessChrome|PhantomJS|puppeteer|Puppeteer|Playwright|Selenium)" } ], "status": 403 },
+    { "src": "/(.*)\\.(webp|gif|png|jpe?g|svg|mp4|webm)$", "headers": { "cache-control": "public, max-age=86400" }, "continue": true },
+    { "handle": "filesystem" }
+  ]
+}
